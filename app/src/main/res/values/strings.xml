@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NMedia</string>
     <string name="title">NMedia!</string>
+    <string name="demoCountFav" translatable="false">75</string>
+    <string name="demoCountShare" translatable="false">15</string>
+    <string name="demoCountView" translatable="false">50000</string>
 </resources>
