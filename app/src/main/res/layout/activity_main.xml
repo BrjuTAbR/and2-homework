@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_spacing"
-    tools:context=".MainActivity">
+    >
 
     <ImageView
         android:id="@+id/logo"
@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toBottomOf="@id/titleBarrier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@sample/posts_avatar" />
+        android:src="@drawable/post_avatar_drawable"
+        />
 
     <TextView
         android:id="@+id/title"
@@ -45,9 +46,11 @@
         android:layout_width="@dimen/posts_btn_size_s"
         android:layout_height="@dimen/posts_btn_size_s"
         android:background="@android:color/transparent"
+        android:contentDescription="More"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_more_vert_24" />
+        app:srcCompat="@drawable/ic_more_vert_24"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/titleBarrier"
@@ -93,7 +96,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/baseline_favorite_border_24" />
+                android:contentDescription="like"
+                app:srcCompat="@drawable/ic_favorite_border" />
 
             <TextView
                 android:id="@+id/favCount"
@@ -114,6 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:contentDescription="share count"
                 app:srcCompat="@drawable/baseline_share_24" />
 
             <TextView
@@ -136,6 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:contentDescription="View Count"
                 app:srcCompat="@drawable/baseline_remove_red_eye_24" />
 
             <TextView
