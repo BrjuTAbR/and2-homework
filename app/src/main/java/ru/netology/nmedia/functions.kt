@@ -18,7 +18,7 @@ fun getTextFromNum(value: Int): String {
 
     var power = 0
 
-    while (value >= thousand.pow(power + 1) || power >= postfixArray.size) {
+    while (value >= thousand.pow(power + 1) && power <= postfixArray.size) {
         power++
     }
     val divider = thousand.pow(power.toDouble()).toInt()
