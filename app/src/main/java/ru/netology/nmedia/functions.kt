@@ -1,6 +1,5 @@
 package ru.netology.nmedia
 
-import ru.netology.nmedia.R
 import kotlin.math.floor
 import kotlin.math.pow
 
@@ -29,9 +28,9 @@ fun getTextFromNum(value: Int): String {
                 || (intermedNum * numBP).toInt() % numBP.toInt() == 0
             ) {
                 intermedNum.toInt()
+            } else {
+                intermedNum
             }
-            intermedNum
-        } else value.toDouble()
-
+        } else value
     return "$num${postfixArray[power]}"
 }
