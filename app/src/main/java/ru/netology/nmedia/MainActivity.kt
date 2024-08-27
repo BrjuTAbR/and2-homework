@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.ru.netology.nmedia.*
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
