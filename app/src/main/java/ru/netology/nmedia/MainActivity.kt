@@ -32,10 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             favBtn.setOnClickListener {
-                viewModel.setCount("like")
+                viewModel.setLike()
             }
             shareBtn.setOnClickListener {
-                viewModel.setCount("share")
+                viewModel.setShare()
             }
         }
 

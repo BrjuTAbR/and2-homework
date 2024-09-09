@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 
 interface PostRepository {
     fun get(): LiveData<Post>
-    fun setCount(str: String)
+    fun setLike()
+    fun setShare()
 }
 
 class PostRepositoryInMemoryImpl : PostRepository {
@@ -15,16 +16,16 @@ class PostRepositoryInMemoryImpl : PostRepository {
 
     override fun get(): MutableLiveData<Post> = data
 
-    override fun setCount(str: String) {
-        when (str) {
-            "like" -> {
-                post = post.copy(
-                    likeByMe = !post.likeByMe,
-                    likes = post.likes + (if (post.likeByMe) -1 else 1)
-                )
-            }
-            "share" -> post = post.copy(share = post.share + 1)
-        }
+    override fun setLike() {
+        post = post.copy(
+            likeByMe = !post.likeByMe,
+            likes = post.likes + (if (post.likeByMe) -1 else 1)
+        )
+        data.value = post
+    }
+
+    override fun setShare() {
+        post = post.copy(share = post.share + 1)
         data.value = post
     }
 }
