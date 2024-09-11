@@ -4,28 +4,38 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 interface PostRepository {
-    fun get(): LiveData<Post>
-    fun setLike()
-    fun setShare()
+    fun getAll(): LiveData<List<Post>>
+
+    fun setLike(id: Long)
+    fun setShare(id: Long)
 }
 
 class PostRepositoryInMemoryImpl : PostRepository {
-    private var post = postDataObj
 
-    private val data = MutableLiveData(post)
+    private val data = MutableLiveData(posts)
 
-    override fun get(): MutableLiveData<Post> = data
-
-    override fun setLike() {
-        post = post.copy(
-            likeByMe = !post.likeByMe,
-            likes = post.likes + (if (post.likeByMe) -1 else 1)
-        )
-        data.value = post
+    override fun getAll(): LiveData<List<Post>> = data
+    override fun setLike(id: Long) {
+        posts = posts.map {
+            if (it.id != id) {
+                it
+            }
+            else {
+                val likesIncrement = if (it.likeByMe) -1 else 1
+                it.copy(likeByMe = !it.likeByMe, likes = it.likes + likesIncrement)
+            }
+        }
+        data.value = posts
     }
 
-    override fun setShare() {
-        post = post.copy(share = post.share + 1)
-        data.value = post
+    override fun setShare(id: Long) {
+        posts = posts.map {
+            if (it.id != id)
+                it
+            else {
+                it.copy(share = it.share + 1)
+            }
+        }
+        data.value = posts
     }
 }

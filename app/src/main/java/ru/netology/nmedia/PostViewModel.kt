@@ -4,7 +4,12 @@ import androidx.lifecycle.ViewModel
 
 class PostViewModel : ViewModel() {
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
-    val data = repository.get()
-    fun setLike() = repository.setLike()
-    fun setShare() = repository.setShare()
+    val data = repository.getAll()
+    fun setLike(id: Long) {
+        repository.setLike(id)
+    }
+    fun setShare(id: Long) {
+        repository.setShare(id)
+    }
+
 }

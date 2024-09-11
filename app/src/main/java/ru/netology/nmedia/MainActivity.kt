@@ -12,31 +12,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
 
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                title.text = post.title
-                subtitle.text = post.subtitle
-                content.text = post.content
-                favCount.text = getTextFromNum(post.likes)
-                shareCount.text = getTextFromNum(post.share)
-                viewCount.text = getTextFromNum(post.view)
-                favBtn.setImageResource(getLikeImg(post.likeByMe))
-            }
-        }
+        val adapter = PostsAdapter(
+            { viewModel.setLike(it.id) },
+            { viewModel.setShare(it.id) }  )
 
-        with(binding) {
-            favBtn.setOnClickListener {
-                viewModel.setLike()
-            }
-            shareBtn.setOnClickListener {
-                viewModel.setShare()
-            }
+        binding.list.adapter = adapter
+        viewModel.data.observe(this) { posts ->
+            adapter.submitList(posts)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

@@ -4,4 +4,6 @@
     <string name="demoCountFav" translatable="false">75</string>
     <string name="demoCountShare" translatable="false">15</string>
     <string name="demoCountView" translatable="false">50000</string>
+    <string name="alt_like">like</string>
+    <string name="alt_share">share</string>
 </resources>
