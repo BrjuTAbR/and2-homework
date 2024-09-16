@@ -66,8 +66,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.save.setOnClickListener {
+
             with(binding.content) {
                 if (text.isNullOrBlank()) {
+
                     Toast.makeText(
                         this@MainActivity,
                         context.getString(R.string.error_empty_content),

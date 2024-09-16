@@ -22,7 +22,6 @@ class PostViewModel : ViewModel() {
     fun setLike(id: Long) {
         repository.setLike(id)
     }
-
     fun setShare(id: Long) {
         repository.setShare(id)
     }
@@ -38,10 +37,10 @@ class PostViewModel : ViewModel() {
             repository.save(it)
 
         }
+
         edited.value = empty
     }
-
-    fun escape() {
+    fun escape () {
         edited.value = empty
     }
 
@@ -53,5 +52,6 @@ class PostViewModel : ViewModel() {
         }
         edited.value = edited.value?.copy(content = text)
     }
+
 
 }
