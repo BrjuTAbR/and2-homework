@@ -10,4 +10,5 @@
     <string name="post_text">Текст Поста....</string>
     <string name="alt_escape">Отмена</string>
     <string name="error_empty_content">Ошибка</string>
+    <string name="more">Еще</string>
 </resources>

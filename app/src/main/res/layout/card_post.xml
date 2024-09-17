@@ -47,7 +47,7 @@
         android:layout_width="@dimen/posts_btn_size_s"
         android:layout_height="@dimen/posts_btn_size_s"
         android:background="@android:color/transparent"
-        android:contentDescription="More"
+        android:contentDescription="@string/more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_24"
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="logo, subtitle, @+id/menu" />
+        app:constraint_referenced_ids="logo, subtitle, menu" />
 
 
     <TextView
