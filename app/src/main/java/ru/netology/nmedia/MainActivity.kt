@@ -1,6 +1,8 @@
 package ru.netology.nmedia
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,9 +19,25 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel: PostViewModel by viewModels()
 
-        val adapter = PostsAdapter(
-            { viewModel.setLike(it.id) },
-            { viewModel.setShare(it.id) }  )
+        val adapter = PostsAdapter(object : OnInteractionListener {
+            override fun onEdit(post: Post) {
+//                viewModel.edit(post)
+                viewModel.setLike(post.id)
+            }
+
+            override fun onLike(post: Post) {
+                viewModel.setLike(post.id)
+            }
+
+            override fun onRemove(post: Post) {
+//                viewModel.removeById(post.id)
+                viewModel.setLike(post.id)
+            }
+
+            override fun onShare(post: Post) {
+                viewModel.setShare(post.id)
+            }
+        })
 
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
