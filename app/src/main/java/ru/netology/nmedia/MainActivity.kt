@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val viewModel: PostViewModel by viewModels()
 
         val adapter = PostsAdapter(object : OnInteractionListener {
@@ -66,9 +67,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.save.setOnClickListener {
 
-            val isOldTextExists = binding.oldContent.text.isNullOrBlank()
-
-            with(binding.content) {
+          val isOldTextExists = binding.oldContent.text.isNullOrBlank()
+         
+          with(binding.content) {
                 if (text.isNullOrBlank()) {
 
                     Toast.makeText(
@@ -87,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                 AndroidUtils.hideKeyboard(this)
             }
 
-            if (isOldTextExists) {
+        if (isOldTextExists) {
                 binding.list.scrollToPosition(0)
             }
         }
