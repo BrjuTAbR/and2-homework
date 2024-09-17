@@ -37,9 +37,7 @@ fun getTextFromNum(value: Int): String {
     return "$num${postfixArray[power]}"
 }
 
-fun hideOldContent(content: TextView) {
-    with(content) {
-        setText("")
-        visibility = View.GONE
-    }
+fun hideOldContent(boxView: View, textView: TextView) {
+    textView.setText("")
+    boxView.visibility = View.GONE
 }

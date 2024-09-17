@@ -51,22 +51,21 @@ class MainActivity : AppCompatActivity() {
                 setText(post.content)
             }
             with(binding) {
-                if (oldContent.text.isNullOrBlank()) {
-                    with(oldContent) {
-                        setText(content.text)
-                        if (!text.isNullOrBlank()) {
-                            visibility = View.VISIBLE
+                if (oldContentText.text.isNullOrBlank()) {
+                    oldContentText.setText(content.text)
+                        if (!oldContentText.text.isNullOrBlank()) {
+                            oldContent.visibility = View.VISIBLE
                         }
-                    }
+
                 } else {
-                    hideOldContent(oldContent)
+                    hideOldContent(oldContent, oldContentText)
                 }
             }
         }
 
         binding.save.setOnClickListener {
 
-          val isOldTextExists = binding.oldContent.text.isNullOrBlank()
+          val isOldTextExists = binding.oldContentText.text.isNullOrBlank()
 
           with(binding.content) {
                 if (text.isNullOrBlank()) {
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
-            hideOldContent(binding.oldContent)
+            hideOldContent(binding.oldContent, binding.oldContentText)
         }
 
         with(binding) {
