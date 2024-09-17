@@ -6,6 +6,6 @@
     <dimen name="posts_avatar_size">48dp</dimen>
     <dimen name="edit_size_part">64dp</dimen>
     <dimen name="edit_size_full">128dp</dimen>
-    <dimen name="posts_btn_size_s">24dp</dimen>
+    <dimen name="posts_btn_size_s">40dp</dimen>
 </resources>
 

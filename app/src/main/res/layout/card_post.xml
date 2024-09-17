@@ -28,7 +28,7 @@
         android:layout_marginEnd="@dimen/common_spacing"
         android:ellipsize="end"
         android:maxLines="1"
-        app:layout_constraintEnd_toStartOf="@id/titleMore"
+        app:layout_constraintEnd_toStartOf="@id/menu"
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@sample/posts.json/data/author" />
@@ -43,7 +43,7 @@
         tools:text="@sample/posts.json/data/published" />
 
     <ImageButton
-        android:id="@+id/titleMore"
+        android:id="@+id/menu"
         android:layout_width="@dimen/posts_btn_size_s"
         android:layout_height="@dimen/posts_btn_size_s"
         android:background="@android:color/transparent"
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="logo, subtitle, titleMore" />
+        app:constraint_referenced_ids="logo, subtitle, @+id/menu" />
 
 
     <TextView
