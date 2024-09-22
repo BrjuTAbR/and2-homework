@@ -1,5 +1,7 @@
 package ru.netology.nmedia
 
+import android.view.View
+import android.widget.TextView
 import kotlin.math.floor
 import kotlin.math.pow
 
@@ -33,4 +35,9 @@ fun getTextFromNum(value: Int): String {
             }
         } else value
     return "$num${postfixArray[power]}"
+}
+
+fun hideOldContent(boxView: View, textView: TextView) {
+    textView.setText("")
+    boxView.visibility = View.GONE
 }

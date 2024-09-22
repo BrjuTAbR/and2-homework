@@ -19,8 +19,6 @@ val postViewNumArray = Array(idx) { i ->
 }
 
 
-
-
 var posts = listOf(
     Post(
         id = idx.toLong(),
@@ -28,8 +26,8 @@ var posts = listOf(
         content = "Освоение новой профессии — это не только открывающиеся возможности и перспективы, но и настоящий вызов самому себе. Приходится выходить из зоны комфорта и перестраивать привычный образ жизни: менять распорядок дня, искать время для занятий, быть готовым к возможным неудачам в начале пути. В блоге рассказали, как избежать стресса на курсах профпереподготовки → http://netolo.gy/fPD",
         subtitle = "23 сентября в 10:12",
         view = postViewNumArray[--idx],
-        likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
-        share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
+        likes = 9_999,
+        share = 999,
         likeByMe = false
     ),
     Post(

@@ -7,11 +7,106 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/card_post" />
+        android:background="@android:color/transparent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="-238dp"
+            tools:listitem="@layout/card_post" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/toolsTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="content" />
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="@dimen/edit_size_content_max"
+            android:minHeight="@dimen/edit_size_part"
+            android:padding="@dimen/common_spacing"
+            android:background="@color/white"
+            android:hint="@string/post_text"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolsTop"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/edit_border"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_spacing"
+            android:background="@drawable/edit_border_top"
+            app:layout_constraintTop_toTopOf="@id/content" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="save, escape" />
+
+        <ImageButton
+            android:id="@+id/escape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_spacing"
+            android:background="@drawable/circle_bg"
+            android:contentDescription="@string/alt_escape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/content"
+            app:srcCompat="@drawable/baseline_close_48" />
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_spacing"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:background="@drawable/circle_bg"
+            android:contentDescription="@string/alt_save"
+            app:layout_constraintEnd_toStartOf="@id/escape"
+            app:layout_constraintTop_toBottomOf="@id/toolsTop"
+            app:srcCompat="@drawable/baseline_check_24" />
+
+        <ScrollView
+            android:id="@+id/oldContent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_size_full"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/edit_size_full"
+            android:layout_marginBottom="@dimen/common_spacing"
+            android:background="#aaaaff"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/save"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/oldContentText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/edit_text_bg"
+                android:padding="@dimen/small_spacing"
+                android:text="" />
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
