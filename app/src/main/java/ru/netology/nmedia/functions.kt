@@ -5,10 +5,6 @@ import android.widget.TextView
 import kotlin.math.floor
 import kotlin.math.pow
 
-fun getLikeImg(likeByMe: Boolean): Int {
-    return if (likeByMe) R.drawable.ic_favorite else R.drawable.ic_favorite_border
-}
-
 fun getTextFromNum(value: Int): String {
     val postfixArray: ArrayList<String> = arrayListOf("", "K", "M", "B")
 

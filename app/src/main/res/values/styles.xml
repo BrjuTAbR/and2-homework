@@ -1,0 +1,8 @@
+<resources>
+    <style name="Widget.AppTheme.LikeButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconTint">@color/color_like_selector</item>
+        <item name="android:minWidth">@dimen/posts_avatar_size</item>
+        <item name="android:minHeight">@dimen/posts_avatar_size</item>
+    </style>
+
+</resources>

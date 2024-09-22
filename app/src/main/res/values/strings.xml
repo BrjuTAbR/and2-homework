@@ -12,5 +12,6 @@
     <string name="post_text">Post Text</string>
     <string name="alt_escape">Escape</string>
     <string name="error_empty_content">Error</string>
-    <string name="more">post menu</string>
+    <string name="alt_more">post menu</string>
+    <string name="alt_view">View Count</string>
 </resources>
