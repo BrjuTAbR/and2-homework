@@ -1,9 +1,11 @@
 package ru.netology.nmedia
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.launch
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,11 +15,18 @@ import ru.netology.nmedia.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+
+         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
+
+        val newPostLauncher = registerForActivityResult(NewPostContract) {
+            val text = it ?: return@registerForActivityResult
+            viewModel.changeContent(text)
+            viewModel.save()v
+        }
+
 
         val adapter = PostsAdapter(object : OnInteractionListener {
             override fun onEdit(post: Post) {
@@ -33,7 +42,19 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onShare(post: Post) {
+                val intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, post.content)
+                }
+                val shareIntent =  Intent.createChooser(intent, getString(R.string.chooser_share_post))
+
+                startActivity(shareIntent)
+
                 viewModel.setShare(post.id)
+
+
+
             }
         })
 
@@ -42,77 +63,14 @@ class MainActivity : AppCompatActivity() {
             adapter.submitList(posts)
         }
 
-        viewModel.edited.observe(this) { post ->
-            if (post.id == 0L) {
-                return@observe
-            }
-            with(binding.content) {
-                requestFocus()
-                setText(post.content)
-            }
-            with(binding) {
-                if (oldContentText.text.isNullOrBlank()) {
-                    oldContentText.setText(content.text)
-                        if (!oldContentText.text.isNullOrBlank()) {
-                            oldContent.visibility = View.VISIBLE
-                        }
-
-                } else {
-                    hideOldContent(oldContent, oldContentText)
-                }
-            }
+        binding.add.setOnClickListener {
+            newPostLauncher.launch()
         }
 
-        binding.save.setOnClickListener {
 
-          val isOldTextExists = binding.oldContentText.text.isNullOrBlank()
 
-          with(binding.content) {
-                if (text.isNullOrBlank()) {
 
-                    Toast.makeText(
-                        this@MainActivity,
-                        context.getString(R.string.error_empty_content),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@setOnClickListener
-                }
 
-                viewModel.changeContent(text.toString())
-                viewModel.save()
-
-                setText("")
-                clearFocus()
-                AndroidUtils.hideKeyboard(this)
-            }
-
-        if (isOldTextExists) {
-                binding.list.scrollToPosition(0)
-            }
-        }
-
-        binding.escape.setOnClickListener {
-            with(binding.content) {
-                viewModel.escape()
-                setText("")
-                clearFocus()
-                AndroidUtils.hideKeyboard(this)
-            }
-            hideOldContent(binding.oldContent, binding.oldContentText)
-        }
-
-        with(binding) {
-            content.setOnFocusChangeListener { _, hasFocus ->
-                val paddingVal = content.paddingStart
-                if (hasFocus) {
-                    group.visibility = View.VISIBLE
-                    content.setPadding(paddingVal, paddingVal * 4, paddingVal, paddingVal)
-                } else {
-                    group.visibility = View.GONE
-                    content.setPadding(paddingVal, paddingVal, paddingVal, paddingVal)
-                }
-            }
-        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

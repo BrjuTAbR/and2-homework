@@ -12,4 +12,6 @@
     <string name="error_empty_content">Ошибка</string>
     <string name="alt_more">Еще</string>
     <string name="alt_view">Колиичество просмотров</string>
+    <string name="chooser_share_post">Пересылаемое сообщение</string>
+    <string name="description_post_save">Сохранить</string>
 </resources>
