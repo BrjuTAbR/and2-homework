@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val newPostLauncher = registerForActivityResult(NewPostContract) {
             val text = it ?: return@registerForActivityResult
             viewModel.changeContent(text)
-            viewModel.save()v
+            viewModel.save()
         }
 
 
