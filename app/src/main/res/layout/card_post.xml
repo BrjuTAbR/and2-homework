@@ -45,11 +45,9 @@
         style="@style/Widget.AppTheme.LikeButton"
         android:layout_width="@dimen/posts_btn_size_s"
         android:layout_height="@dimen/posts_btn_size_s"
-        android:background="@android:color/transparent"
         android:contentDescription="@string/alt_more"
         android:text=""
         app:icon="@drawable/ic_more_vert_24"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_favorite_border"
@@ -97,6 +95,7 @@
             android:checkable="true"
             android:contentDescription="@string/alt_like"
             android:text=""
+
             app:icon="@drawable/ic_favorite_selector"
 
             tools:text="@string/demoCountFav" />
@@ -116,6 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="10"
+            android:layout_gravity="center_vertical"
             android:gravity="end">
 
             <ImageView
