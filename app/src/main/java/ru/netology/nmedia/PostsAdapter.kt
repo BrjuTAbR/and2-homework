@@ -31,11 +31,12 @@ class PostViewHolder(
             title.text = post.title
             subtitle.text = post.subtitle
             content.text = post.content
-            favCount.text = if (post.likes > 0) getTextFromNum(post.likes) else ""
-            shareCount.text = if (post.share > 0) getTextFromNum(post.share) else ""
+            favBtn.text = if (post.likes > 0) getTextFromNum(post.likes) else ""
+            shareBtn.text = if (post.share > 0) getTextFromNum(post.share) else ""
             viewCount.text = if (post.view > 0) post.view.toString() else ""
 
-            favBtn.setImageResource(getLikeImg(post.likeByMe))
+            favBtn.isChecked = post.likeByMe
+
 
             favBtn.setOnClickListener {
                 onInteractionListener.onLike(post)

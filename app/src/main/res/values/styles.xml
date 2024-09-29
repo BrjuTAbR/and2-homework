@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="Widget.AppTheme.LikeButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconTint">@color/color_like_selector</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+        <item name="android:minWidth">@dimen/common_spacing</item>
+        <item name="android:minHeight">@dimen/common_spacing</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+</resources>
