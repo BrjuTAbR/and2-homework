@@ -7,7 +7,7 @@ const val RANDOM_KF = 1_000
 const val LIKE_KF = 3
 const val SHARE_KF = LIKE_KF * 4
 
-var idx: Int = 9
+var idx: Int = 10
 
 var currentNum = Random.nextInt(RANDOM_KF * idx)
 
@@ -20,6 +20,16 @@ val postViewNumArray = Array(idx) { i ->
 
 
 var posts = listOf(
+    Post(
+        id = idx.toLong(),
+        title = "Nobody",
+        content = "",
+        subtitle = "Nevermore",
+        view = postViewNumArray[--idx],
+        likes = 9_999,
+        share = 999,
+        likeByMe = true
+    ),
     Post(
         id = idx.toLong(),
         title = "Нетология. Университет интернет-профессий будущего",

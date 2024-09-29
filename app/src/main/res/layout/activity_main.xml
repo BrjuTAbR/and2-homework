@@ -21,37 +21,18 @@
             tools:layout_editor_absoluteY="-238dp"
             tools:listitem="@layout/card_post" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/toolsTop"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="content" />
-
-        <EditText
-            android:id="@+id/content"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:maxHeight="@dimen/edit_size_content_max"
-            android:minHeight="@dimen/edit_size_part"
-            android:padding="@dimen/common_spacing"
-            android:background="@color/white"
-            android:hint="@string/post_text"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:layout_marginBottom="@dimen/common_spacing"
+            android:contentDescription="@string/description_post_save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolsTop"
-            app:layout_constraintVertical_bias="0.0" />
+            app:srcCompat="@drawable/baseline_add_24" />
 
-        <View
-            android:id="@+id/edit_border"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/small_spacing"
-            android:background="@drawable/edit_border_top"
-            app:layout_constraintTop_toTopOf="@id/content" />
+
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"
@@ -67,8 +48,8 @@
             android:layout_margin="@dimen/small_spacing"
             android:background="@drawable/circle_bg"
             android:contentDescription="@string/alt_escape"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/content"
             app:srcCompat="@drawable/baseline_close_48" />
 
         <ImageButton
@@ -80,7 +61,7 @@
             android:background="@drawable/circle_bg"
             android:contentDescription="@string/alt_save"
             app:layout_constraintEnd_toStartOf="@id/escape"
-            app:layout_constraintTop_toBottomOf="@id/toolsTop"
+            app:layout_constraintTop_toBottomOf="parent"
             app:srcCompat="@drawable/baseline_check_24" />
 
         <ScrollView
