@@ -1,6 +1,7 @@
 package ru.netology.nmedia
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.ListAdapter
@@ -37,7 +38,6 @@ class PostViewHolder(
 
             favBtn.isChecked = post.likeByMe
 
-
             favBtn.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
@@ -63,6 +63,14 @@ class PostViewHolder(
                         }
                     }
                 }.show()
+            }
+
+            if(post.video != null) {
+                videoBox.visibility = View.VISIBLE
+
+                videoBox.setOnClickListener{
+                    onInteractionListener.onVideo(post)
+                }
             }
 
         }

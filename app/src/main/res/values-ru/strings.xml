@@ -14,4 +14,5 @@
     <string name="alt_view">Колиичество просмотров</string>
     <string name="chooser_share_post">Пересылаемое сообщение</string>
     <string name="description_post_save">Сохранить</string>
+    <string name="chooser_play_video">Посмотреть</string>
 </resources>
