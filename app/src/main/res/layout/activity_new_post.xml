@@ -2,9 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_post"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/new_post"
 
     tools:context=".NewPostActivity">
 
@@ -12,32 +12,37 @@
         android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/common_spacing"
+        android:background="@color/material_dynamic_neutral95"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:layout_margin="@dimen/common_spacing"
-        android:padding="@dimen/common_spacing"
-        android:background="@color/material_dynamic_neutral95"
-        />
+        android:padding="@dimen/common_spacing" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
         android:layout_height="@dimen/edit_size_part"
-        android:layout_gravity="bottom"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        />
+        android:layout_gravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/description_post_save"
-        app:srcCompat="@drawable/baseline_check_24"
         android:backgroundTint="@color/material_dynamic_primary80"
-
-
-
+        android:contentDescription="@string/description_post_save"
         app:layout_anchor="@id/bottomAppBar"
-        />
+        app:srcCompat="@drawable/baseline_check_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/escape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:backgroundTint="@color/material_dynamic_primary80"
+        android:contentDescription="@string/alt_escape"
+        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchorGravity="end"
+        app:srcCompat="@drawable/baseline_close_48" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
