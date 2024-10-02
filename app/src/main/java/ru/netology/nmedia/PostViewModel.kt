@@ -11,7 +11,8 @@ class PostViewModel : ViewModel() {
         subtitle = "",
         likes = 0,
         share = 0,
-        view = 0
+        view = 0,
+        video = null
     )
 
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
@@ -36,13 +37,11 @@ class PostViewModel : ViewModel() {
             repository.save(it)
 
         }
-
-        edited.value = empty
+        escape()
     }
     fun escape () {
         edited.value = empty
     }
-
 
     fun changeContent(content: String) {
         val text = content.trim()
