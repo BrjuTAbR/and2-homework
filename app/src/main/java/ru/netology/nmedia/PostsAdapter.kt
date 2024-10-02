@@ -58,7 +58,6 @@ class PostViewHolder(
                                 onInteractionListener.onEdit(post)
                                 true
                             }
-
                             else -> false
                         }
                     }
@@ -72,7 +71,9 @@ class PostViewHolder(
                     onInteractionListener.onVideo(post)
                 }
             }
-
+            else {
+                videoBox.visibility = View.GONE
+            }
         }
     }
 }

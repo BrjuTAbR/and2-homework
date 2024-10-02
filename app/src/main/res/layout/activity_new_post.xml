@@ -13,10 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/common_spacing"
+        android:autofillHints=""
         android:background="@color/material_dynamic_neutral95"
         android:gravity="start|top"
+        android:hint="@string/post_text"
         android:inputType="textMultiLine"
-        android:padding="@dimen/common_spacing" />
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingTop="@dimen/post_margin"
+        android:paddingEnd="@dimen/common_spacing"
+        android:paddingBottom="@dimen/common_spacing"
+        tools:ignore="LabelFor" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -31,18 +37,55 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/material_dynamic_primary80"
         android:contentDescription="@string/description_post_save"
+
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/baseline_check_24" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/escape"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/oldContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:backgroundTint="@color/material_dynamic_primary80"
+        android:layout_height="@dimen/edit_size_full"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginEnd="@dimen/edit_size_part"
+        android:layout_marginBottom="@dimen/common_spacing"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ScrollView
+            android:id="@+id/oldContentScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/material_dynamic_secondary95"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/oldContentText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/material_dynamic_secondary95"
+                android:padding="@dimen/small_spacing"
+                tools:text="123" />
+
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+
+    <ImageButton
+        android:id="@+id/escape"
+        android:layout_width="@dimen/posts_avatar_size"
+        android:layout_height="@dimen/posts_avatar_size"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginEnd="@dimen/small_spacing"
+        android:background="@drawable/circle_bg"
         android:contentDescription="@string/alt_escape"
-        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchor="@id/edit"
         app:layout_anchorGravity="end"
-        app:srcCompat="@drawable/baseline_close_48" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_close_48"
+        tools:ignore="ImageContrastCheck" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

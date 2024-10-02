@@ -37,7 +37,9 @@ class PostViewModel : ViewModel() {
             repository.save(it)
 
         }
-
+        escape()
+    }
+    fun escape () {
         edited.value = empty
     }
 

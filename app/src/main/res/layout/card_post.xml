@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/post_margin_bottom"
+    android:layout_marginBottom="@dimen/post_margin"
     android:padding="@dimen/common_spacing">
 
     <ImageView

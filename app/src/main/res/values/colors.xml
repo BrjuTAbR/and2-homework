@@ -13,7 +13,7 @@
 
 
     <color name="edit_text_btn_bg">#CCDDDD</color>
-    <color name="edit_text_bg">#CCDD80</color>
+    <color name="edit_text_bg">#aaffcc</color>
     <color name="green_ok">#50B050</color>
     <color name="red_cancel">#FF5000</color>
 

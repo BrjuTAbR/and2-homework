@@ -5,13 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatActivity.RESULT_OK
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import ru.netology.nmedia.NewPostActivity.Companion.KEY_TEXT
 import ru.netology.nmedia.databinding.ActivityNewPostBinding
 
 class NewPostActivity : AppCompatActivity() {
@@ -25,6 +22,16 @@ class NewPostActivity : AppCompatActivity() {
         val txt = intent.getStringExtra(KEY_TEXT)
 
         binding.edit.setText(txt)
+
+        if(txt != null) {
+            with(binding) {
+                oldContent.visibility = View.VISIBLE
+                with(edit) {
+                    setPadding(paddingStart, getResources().getDimension(R.dimen.edit_padding_top).toInt(), paddingEnd, paddingBottom)
+                }
+                oldContentText.setText(txt)
+            }
+        }
 
         val viewModel: PostViewModel by viewModels()
 

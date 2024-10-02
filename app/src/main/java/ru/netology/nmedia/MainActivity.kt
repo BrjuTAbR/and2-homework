@@ -1,14 +1,8 @@
 package ru.netology.nmedia
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.launch
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,7 +19,13 @@ class MainActivity : AppCompatActivity() {
         val viewModel: PostViewModel by viewModels()
 
         val newPostLauncher = registerForActivityResult(NewPostContract) {
-            val text = it ?: return@registerForActivityResult
+
+            val text = if (it != null) {
+                it
+            } else {
+                viewModel.escape()
+                (return@registerForActivityResult)
+            }
             viewModel.changeContent(text)
             viewModel.save()
         }
