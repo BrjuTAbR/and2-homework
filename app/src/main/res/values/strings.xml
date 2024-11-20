@@ -16,5 +16,6 @@
     <string name="alt_view">View Count</string>
     <string name="chooser_share_post">Share post</string>
     <string name="description_post_save">Save</string>
+    <string name="chooser_play_video">Play Video</string>
 
 </resources>

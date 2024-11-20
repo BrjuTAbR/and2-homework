@@ -23,12 +23,14 @@ var posts = listOf(
     Post(
         id = idx.toLong(),
         title = "Nobody",
-        content = "",
+        content = "Video",
         subtitle = "Nevermore",
         view = postViewNumArray[--idx],
         likes = 9_999,
         share = 999,
-        likeByMe = true
+        likeByMe = true,
+        video = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
+        
     ),
     Post(
         id = idx.toLong(),
@@ -38,7 +40,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = 9_999,
         share = 999,
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -48,7 +51,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -58,7 +62,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -68,7 +73,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -78,7 +84,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -88,7 +95,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -98,7 +106,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -108,7 +117,8 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     ),
     Post(
         id = idx.toLong(),
@@ -118,6 +128,7 @@ var posts = listOf(
         view = postViewNumArray[--idx],
         likes = Random.nextInt(postViewNumArray[idx] / LIKE_KF),
         share = Random.nextInt(postViewNumArray[idx] / SHARE_KF),
-        likeByMe = false
+        likeByMe = false,
+        video = null
     )
 )
