@@ -1,6 +1,7 @@
 [versions]
 agp = "8.5.2"
 coreTesting = "2.2.0"
+gson = "2.10.1"
 kotlin = "2.0.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -27,6 +28,7 @@ androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", 
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycleViewmodelSavedstate" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
